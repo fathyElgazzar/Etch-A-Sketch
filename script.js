@@ -1,6 +1,6 @@
 const squares = document.getElementById("squares");
 const pixels = document.getElementById("btn-pixel");
-
+let isDrawing = false;
 // Number of Squares
 let numOfSquares = 64;
 
@@ -23,8 +23,15 @@ function drawSquares() {
 drawSquares();
 
 // Event Listener
+document.addEventListener("mousedown", () => {
+  isDrawing = true;
+});
+document.addEventListener("mouseup", () => {
+  isDrawing = false;
+});
+
 squares.addEventListener("mouseover", (e) => {
-  if (e.target.classList.contains("square")) {
+  if (isDrawing && e.target.classList.contains("square")) {
     e.target.style.backgroundColor = `#458588`;
   }
 });
