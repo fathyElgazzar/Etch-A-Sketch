@@ -9,17 +9,32 @@
   </head>
   <body>
     <h1>Etch-A-Sketch</h1>
-    <button class="btn-pixel" id="btn-pixel">Pixel size</button>
+    <!-- <button class="btn-pixel" id="btn-pixel">Pixel size</button> -->
+    <div class="buttons-container">
+      <div class="pixel-size-container">
+        <label for="pixels" class="pixel-size-label">Pixel size:</label>
+        <input
+          type="range"
+          id="pixel-size"
+          class="pixel-size-input"
+          name="pixels"
+          min="4"
+          max="100"
+          value="64"
+        />
+        <span class="pixel-size-value"></span>
+      </div>
 
-    <div class="color-picker-container">
-      <label for="color-pick" class="color-picker-label">Pick a color:</label>
-      <input
-        type="color"
-        value="#rrggbb"
-        name="color-pick"
-        class="color-picker"
-        id="color-pick"
-      />
+      <div class="color-picker-container">
+        <label for="color-pick" class="color-picker-label">Pick a color:</label>
+        <input
+          type="color"
+          value="#rrggbb"
+          name="color-pick"
+          class="color-picker"
+          id="color-pick"
+        />
+      </div>
     </div>
     <div class="squares" id="squares"></div>
     <p class="author">
