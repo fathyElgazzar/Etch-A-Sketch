@@ -1,9 +1,10 @@
 const squares = document.getElementById("squares");
 const pixels = document.getElementById("btn-pixel");
+const colorPicker = document.querySelector(".color-picker");
 let isDrawing = false;
 // Number of Squares
 let numOfSquares = 64;
-
+let color = colorPicker.value;
 let squareRow;
 let square;
 // Draw squares
@@ -32,7 +33,7 @@ document.addEventListener("mouseup", () => {
 
 squares.addEventListener("mouseover", (e) => {
   if (isDrawing && e.target.classList.contains("square")) {
-    e.target.style.backgroundColor = `#458588`;
+    e.target.style.backgroundColor = color;
   }
 });
 
@@ -46,4 +47,8 @@ pixels.addEventListener("click", () => {
     squares.innerHTML = "";
     drawSquares();
   }
+});
+
+colorPicker.addEventListener("change", function (e) {
+  color = e.target.value;
 });
