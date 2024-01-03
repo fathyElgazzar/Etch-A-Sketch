@@ -21,8 +21,8 @@ h1 {
 }
 
 .squares {
-  width: 960px;
-  height: 700px;
+  width: 700px;
+  height: 550px;
   /* border: 2px solid #d65d0e; */
   display: flex;
   flex-direction: column;
