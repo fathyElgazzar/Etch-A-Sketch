@@ -1,9 +1,12 @@
 const squares = document.getElementById("squares");
-const pixels = document.getElementById("btn-pixel");
+// const pixels = document.getElementById("btn-pixel");
+const pixelSize = document.querySelector("#pixel-size");
 const colorPicker = document.querySelector(".color-picker");
+const pixelSizeValue = document.querySelector(".pixel-size-value");
 let isDrawing = false;
+pixelSizeValue.textContent = `${pixelSize.value} px`;
 // Number of Squares
-let numOfSquares = 64;
+let numOfSquares = pixelSize.value;
 let color = colorPicker.value;
 let squareRow;
 let square;
@@ -37,18 +40,26 @@ squares.addEventListener("mouseover", (e) => {
   }
 });
 
-pixels.addEventListener("click", () => {
-  // Get Number of squares
-  const Num = Number(prompt("Type the number of squares 'max 100' "));
-  if (Num > 100) {
-    alert("Please type number between 1 and 100");
-  } else {
-    numOfSquares = Num;
-    squares.innerHTML = "";
-    drawSquares();
-  }
-});
+// An older prompt way but it's not clean I think and I don't prefer it
+// pixels.addEventListener("click", () => {
+//   // Get Number of squares
+//   const Num = Number(prompt("Type the number of squares 'max 100' "));
+//   if (Num > 100) {
+//     alert("Please type number between 1 and 100");
+//   } else {
+//     numOfSquares = Num;
+//     squares.innerHTML = "";
+//     drawSquares();
+//   }
+// });
 
 colorPicker.addEventListener("change", function (e) {
   color = e.target.value;
+});
+
+pixelSize.addEventListener("input", function (e) {
+  pixelSizeValue.textContent = `${e.target.value} px`;
+  numOfSquares = e.target.value;
+  squares.innerHTML = "";
+  drawSquares();
 });
