@@ -3,13 +3,16 @@ const squares = document.getElementById("squares");
 const pixelSize = document.querySelector("#pixel-size");
 const colorPicker = document.querySelector(".color-picker");
 const pixelSizeValue = document.querySelector(".pixel-size-value");
+const eraser = document.querySelector(".eraser");
 let isDrawing = false;
+let focused = false;
 pixelSizeValue.textContent = `${pixelSize.value} px`;
 // Number of Squares
 let numOfSquares = pixelSize.value;
 let color = colorPicker.value;
 let squareRow;
 let square;
+
 // Draw squares
 function drawSquares() {
   for (let i = 1; i <= numOfSquares; i++) {
@@ -26,7 +29,12 @@ function drawSquares() {
 }
 drawSquares();
 
-// Event Listener
+// Erase background color
+function eraseSquares() {
+  return (focused = true);
+}
+
+// Event Listeners
 document.addEventListener("mousedown", () => {
   isDrawing = true;
 });
@@ -34,9 +42,14 @@ document.addEventListener("mouseup", () => {
   isDrawing = false;
 });
 
+eraser.addEventListener("focus", eraseSquares);
+
 squares.addEventListener("mouseover", (e) => {
-  if (isDrawing && e.target.classList.contains("square")) {
+  if (!focused && isDrawing && e.target.classList.contains("square")) {
     e.target.style.backgroundColor = color;
+  }
+  if (focused && isDrawing && e.target.classList.contains("square")) {
+    e.target.style.backgroundColor = "";
   }
 });
 
@@ -55,6 +68,7 @@ squares.addEventListener("mouseover", (e) => {
 
 colorPicker.addEventListener("change", function (e) {
   color = e.target.value;
+  focused = false;
 });
 
 pixelSize.addEventListener("input", function (e) {
