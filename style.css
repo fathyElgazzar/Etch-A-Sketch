@@ -141,6 +141,24 @@ input[type="range"]:focus::-ms-fill-upper {
   /* text-align: center; */
 }
 
+.eraser {
+  border: 0;
+  background: none;
+  font-size: 16px;
+  padding: 8px 14px;
+  background-color: #458588;
+  color: #fbf1c7;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: scale 0.2s;
+}
+.eraser:focus {
+  outline: none;
+}
+.eraser:active {
+  transform: scale(0.98);
+}
+
 .squares {
   width: 700px;
   height: 550px;
