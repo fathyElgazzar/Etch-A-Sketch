@@ -16,3 +16,4 @@ Browser version of something between a sketchpad and an Etch-A-Sketch.
 - Add input range and style it
 - get comfort with mouse events
 - get comfort with the DOM methods like : appendChild, createElement..
+- Implement button and handle specific event to it under specific conditions.
