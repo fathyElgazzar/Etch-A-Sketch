@@ -2,7 +2,7 @@
 
 Browser version of something between a sketchpad and an Etch-A-Sketch.
 
-- [👉Live demo](https://fathyelgazar.github.io/Etch-A-Sketch)
+- [👉Live demo](https://fathyElgazzar.github.io/Etch-A-Sketch)
 
 #### Features
 
